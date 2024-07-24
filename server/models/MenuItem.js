@@ -23,6 +23,9 @@ const Menu = new mongoose.Schema({
         type:Boolean,
         default:true
 
+    },
+    image :{
+        type:String,
     }
 })
 module.exports = mongoose.model("MenuItems",Menu)
