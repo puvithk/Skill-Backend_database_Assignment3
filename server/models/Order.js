@@ -16,8 +16,21 @@ const Order = mongoose.Schema({
         required: true
     },
     menuItems: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'MenuItems'
-    }]
+        item: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'MenuItems',
+          required: true
+        },
+        quantity: {
+          type: Number,
+          required: true
+        }
+      }],
+    orderStatus :{
+        type: String,
+        required: true,
+        enum: [' Pending', ' Completed',' canceled'],
+    }
+
 })
 module.exports = mongoose.model('Order', Order)
